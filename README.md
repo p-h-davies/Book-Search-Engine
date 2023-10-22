@@ -1,4 +1,4 @@
-# Book Search Engine [Static Badge](https://img.shields.io/badge/License:-No_License-green:badgeContent)
+# Book Search Engine ![Static Badge](https://img.shields.io/badge/License:-No_License-green:badgeContent)
 
 # Table of Contents
 - [Description](#description)
