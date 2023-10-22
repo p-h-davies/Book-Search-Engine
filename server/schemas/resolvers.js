@@ -9,6 +9,7 @@ const resolvers = {
                 const userData = await User
                     .findOne({ _id: context.user._id })
                     .select("-__v -password")
+
                 return userData;
             };
             throw AuthenticationError("You must be logged in!");
@@ -35,13 +36,13 @@ const resolvers = {
 
             return { token, user };
         },
-        saveBook: async (parent, { book }, context) => {
+        saveBook: async (parent, { bookData }, context) => {
             if (context.user) {
                 const saveBook = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { savedBooks: book._id } },
+                    { $addToSet: { savedBooks: bookData } },
                     { new: true },
-                ).populate("books");
+                )
                 return saveBook;
             }
             throw AuthenticationError("You must be logged in to do this! :(");
@@ -50,9 +51,8 @@ const resolvers = {
             if (context.user) {
                 const userBookRemove = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    {
-                        $pull: { savedBooks: book._id }
-                    }, { new: true }
+                    { $pull: { savedBooks: { bookId } } },
+                    { new: true }
                 );
                 return userBookRemove;
             }
