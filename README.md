@@ -17,7 +17,7 @@ This application is a search engine for books, which allows you to search for bo
 
 ## Installation:
 
-You can either install this application and run it on your local host (explained below), or you are able to use it via Heroku: https://p-h-davies-text-editor-5135231fbfde.herokuapp.com/
+You can either install this application and run it on your local host (explained below), or you are able to use it via Heroku: https://glacial-coast-06763-224d5f1bf651.herokuapp.com/
 
 To install this application and run it on your local host, you will need to:
 - Ensure you have a Terminator emulator Software installed (such as Terminal for Mac, or Bash for Windows). 
