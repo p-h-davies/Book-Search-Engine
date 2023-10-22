@@ -1,6 +1,6 @@
 const typeDefs = `
    type User {
-    id: ID
+    _id: ID
     username: String
     email: String
     bookCount: Int
@@ -14,7 +14,7 @@ const typeDefs = `
 
   input BookInput {
     authors: [String]
-    description: String!
+    description: String
     bookId: String!
     image: String
     link: String
