@@ -4,8 +4,14 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        user: async (parent, { _id }) => {
-            return User.findOne({ _id }).populate('thoughts');
+        me: async (parent, args, context) => {
+            if (context.user) {
+                const userData = await User
+                    .findOne({ _id: context.user._id })
+                    .select("-__v -password")
+                return userData;
+            };
+            throw AuthenticationError("You must be logged in!");
         },
     },
 
